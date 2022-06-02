@@ -13,7 +13,8 @@ The game is multiplayer and requires at least two players to start playing.
 ## Installation
 
  - Clone/download the repository
- - Run project with the PHP server (e.g. XAMPP) 
+ - Prepare database `\Database\database.sql`
+ - Run `\Project` with the PHP server (e.g. XAMPP) 
  - `index.html` is the initial file
     
 
