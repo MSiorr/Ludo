@@ -1,0 +1,681 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 600px;
+    background-color: black;
+}
+
+#mainDiv {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#loginBackgroundDiv{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#labelInfo {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+#joinBtn {
+    margin-top: 10px;
+    padding: 12px 30px;
+    cursor: pointer;
+    border: 2px solid white;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 10px;
+    outline: none;
+}
+
+#joinBtn:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+#nickInput {
+    padding: 10px 16px;
+    width: 300px;
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid white;
+    outline: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+#info {
+    position: absolute;
+    z-index: 10;
+    color: white;
+}
+
+#playersDiv {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.playerDiv {
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    min-width: 80px;
+    text-align: center;
+    color: white;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.playerTime {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background-color: rgb(119, 0, 255);
+    color: white;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 100%;
+}
+
+.playerDiv:first-of-type {
+    font-size: 18px;
+    color: yellow;
+}
+
+.green {
+    background-color: rgb(0, 90, 0);
+}
+
+.red {
+    background-color: rgb(163, 0, 0);
+}
+
+.blue {
+    background-color: rgb(0, 0, 151);
+}
+
+.yellow {
+    background-color: rgba(255, 255, 0, 0.75);
+}
+
+.ready {
+    box-shadow: 0px 0px 50px 15px rgb(0, 208, 0);
+}   
+
+.notReady {
+    box-shadow: 0px 0px 50px 15px rgb(194, 0, 0);
+}
+
+#gameBoard {
+    margin: 50px auto 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* outline: 2px solid white; */
+}
+
+#throwDiceButton {
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 60px);
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+}
+
+#pion {
+    width: 28px;
+    height: 28px;
+    background-color: red;
+    border-radius: 14px;
+    position: absolute;
+}
+
+#buttonReadyDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.readyStatusSpan {
+    color: white;
+    margin: 0 10px;
+}
+
+
+/*  BUTTTON SLIDER - START  */
+
+#btnLabel {
+    position: relative;
+    display: inline-block;
+    width: 140px;
+    height: 34px;
+}
+
+#btnLabel input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+#btnSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(247, 28, 28);
+    -webkit-transition: .6s;
+    transition: .6s;
+    border-radius: 34px;
+}
+
+#btnSlider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .6s;
+    border-radius: 50%;
+}
+
+#btnInput:checked + #btnSlider {
+    background-color: rgb(0, 220, 0);
+}
+
+#btnInput:focus + #btnSlider {
+    box-shadow: 0 0 1px rgb(0, 220, 0);
+}
+
+#btnInput:checked + #btnSlider:before {
+    -webkit-transform: translateX(106px);
+    -ms-transform: translateX(106px);
+    transform: translateX(106px);
+}
+
+.spanReady {
+    display: none;
+}
+
+.spanReady, .spanNotReady {
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+#btnInput:checked + #btnSlider .spanReady{
+    display: block;
+}
+
+#btnInput:checked + #btnSlider .spanNotReady{
+    display: none;
+}
+
+
+/*  BUTTTON SLIDER - END  */
+
+#diceImg {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: calc(50% - 60px);
+    left: calc(50% - 60px);
+    background-size: cover;
+    z-index: 1;
+    transition: transform 1s ease, opacity .5s;
+}
+
+#moveDivParent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.moveDiv {
+    position: absolute;
+    border-radius: 100%;
+    cursor: pointer;
+
+    animation: blink 1s linear alternate infinite;
+}
+
+@keyframes blink {
+    0% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.hintPawn {
+    position: absolute;
+    border-radius: 100%;
+    cursor: pointer;
+    opacity: 0.7;
+
+    animation: hintBlink 1s linear alternate infinite;
+}
+
+@keyframes hintBlink {
+    0% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: rgb(0, 255, 255);
+    }
+}
+
+#endGameDiv {
+    position: absolute;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 2s;
+}
+
+#leaderBoardTitle {
+    width: 100%;
+    font-size: 80px;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+#leaderBoardTableDiv {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#leaderBoard {
+    color: white;
+    text-align: center;
+    width: 40%;
+}
+
+.leaderBoardImg {
+    width: 120px;
+    margin: 10px 0;
+}
+#leaderBoard {
+    color: white;
+}
+#leaderBoard th {
+    font-size: 38px;
+    width: 50%;
+}
+.leaderBoardNick {
+    font-size: 30px;
+}
+.animatedTR {
+    transition: opacity 1s;
+}
+
+#toMainMenuBtn {
+    margin-top: 50px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 16px;
+    outline: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#toMainMenuBtn:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+#startMenuDiv {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 850px;
+    overflow: hidden;
+}
+
+#titleDiv {
+    color: white;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+
+#menu {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 160px);
+}
+
+.menuBtn {
+    width: 90%;
+    max-width: 600px;
+    padding: 20px 30px;
+    margin: 5px 0;
+    background-color: transparent;
+    border: 5px solid white;
+    border-radius: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.menuBtnImg {
+    width: 60px;
+    opacity: 0;
+    transition: transform 1s, opacity 1s ease-in-out;
+}
+
+.menuBtn:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.menuBtn:hover .menuBtnImg {
+    opacity: 1;
+}
+
+.menuBtn:hover .menuBtnLeft {
+    transform: rotate(360deg);
+}
+
+.menuBtn:hover .menuBtnRight {
+    transform: rotate(-360deg);
+}
+
+#roomsListDiv {
+    box-sizing: border-box;
+    position: absolute;
+    width: 80vw;
+    height: 50vh;
+    min-width: 680px;
+    top: 25vh;
+    left: 10vw;
+    border: 5px solid white;
+    border-radius: 20px;
+    background-color: black;
+    overflow: hidden;
+}
+
+#roomListTitle {
+    box-sizing: border-box;
+    height: 65px;
+    border-bottom: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    position: relative;
+}
+
+#closeRoomListBtn {
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: rgb(167, 6, 6);
+    width: 34px;
+    height: 34px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border-radius: 10px;
+    line-height: 50%;
+    cursor: pointer;
+}
+
+#closeRoomListBtn:hover {
+    background-color: rgb(179, 39, 39);
+}
+
+#refreshRoomListBtn {
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: rgb(3, 9, 199);
+    width: 34px;
+    height: 34px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 10px;
+    line-height: 50%;
+    cursor: pointer;
+}
+
+#refreshRoomListBtn:hover {
+    background-color: rgb(38, 44, 213);
+}
+
+#mainRoomListDiv {
+    display: flex;
+    height: calc(100% - 65px);
+    min-width: 680px;
+}
+
+#list {
+    min-width: calc(0.7 * 680px);
+    width: 70vw;
+    background-color: rgba(255,255,255,0.1);
+    overflow-y: auto;
+}
+
+#roomsTools {
+    box-sizing: border-box;
+    border-left: 5px solid white;
+    width: 30vw;
+    min-width: calc(0.3 * 680px);
+    display: flex;
+    flex-direction: column;
+}
+
+#inviteToolDiv {
+    box-sizing: border-box;
+    border-bottom: 2px solid white;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#createRoomToolDiv {
+    box-sizing: border-box;
+    border-top: 2px solid white;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#inviteCodeInput {
+    width: calc(84% - 24px);
+    background-color: rgba(255,255,255,0.15);
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 20px;
+    color: white;
+    outline: none;
+}
+
+.toolBtn {
+    margin-top: 20px;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.12);
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.toolBtn:hover {
+    background-color: rgba(255,255,255,0.17);
+}
+
+#roomTypeDiv {
+    width: calc(84% - 4px);
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+}
+
+.roomTypeBtn {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+#publicBtn {
+    border-right: 1px solid white;
+}
+
+#privateBtn {
+    border-left: 1px solid white;
+}
+
+.selectedRoomType {
+    color: white;
+    background-color: rgba(255,255,255,0.075);
+}
+
+.notSelectedRoomType {
+    color: rgb(169, 169, 169);
+}
+
+#roomInfoDiv {
+    color: white;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#firstRoomInfoSpan {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#secondRoomInfoSpan {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.roomListItem {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.roomListJoinBtn {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.roomListJoinBtn:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
