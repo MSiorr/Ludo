@@ -1,7 +1,7 @@
 # Ludo
 Multiplayer ludo game
 
-![look](img/look.png)
+![obraz](https://user-images.githubusercontent.com/49323088/171882825-25d9f955-cbbb-4ca8-bf15-078dbd1dc78f.png)
 
 ### Test it now 
 **👉 http://msior.ct8.pl/Ludo/ 👈**
