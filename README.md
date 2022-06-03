@@ -3,6 +3,9 @@ Multiplayer ludo game
 
 ![look](img/look.png)
 
+### Test it now 
+**👉 http://msior.ct8.pl/Ludo/ 👈**
+
 
 ##  Overall info
 
